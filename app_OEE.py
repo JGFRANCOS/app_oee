@@ -3,7 +3,6 @@ import json
 import os
 import numpy as np
 import pandas as pd
-import sqlalchemy as sa
 from sqlalchemy import create_engine
 import mysql.connector as mariadb
 import streamlit as st
