@@ -81,51 +81,61 @@ Maquina_76=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=76 
 	
     #Representarlos en la app
 if st.sidebar.button('OBTENER OEE'):
-
+#Fila 1 ********************************************************************************************************
 	col1, col2,col3, col4, col5, col6 = st.columns(6)
-	with col1:		
+	with col1:				
 		Lista1=Maquina_1.to_numpy().tolist()
-		Valor1=Lista1[0]		
+		Valor1=Lista1[0]	
+		
 		option1 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
-				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,   #Sombra desenfoque
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
-					"length": '60%',
-					"width": 8,
-					"offsetCenter": [0, '5%']},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
+				"radius":'100%', #tamaño del Velocimetro respecto de su cuadricula en la fila 
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(255,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
+					"length": '60%', 			#longitud del puntero 
+					"width": 8,      			#grosor
+					"offsetCenter": [0, '5%'],	#colocacion repecto del eje				
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000', # color de Fondo 
-					"borderColor": '#000000', # Color del Borde
-					"borderWidth": 0,   #Ancho del Borde
-					"width": '0%',
-					"lineHeight": 0, #Altura de la Linea
-					"height": 0,
-					"borderRadius": 0,
-					"offsetCenter": [0, '100%'], #Los Tantos por Cientos colocacion
-					"valueAnimation":"true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los datos de Porcentajes segun el valor
+				},
 				"data": [{
-					"value":Valor1,
+					"value": Valor1,
 					"name": 'Maquina 1'}]
 			}]
 		};
@@ -136,42 +146,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor2=Lista2[0]
 		option2 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor2,
 					"name": 'Maquina 2'}]
@@ -181,45 +200,54 @@ if st.sidebar.button('OBTENER OEE'):
 		
 	with col3:
 		Lista5=Maquina_5.to_numpy().tolist()
-		Valor5=Lista5[0]
+		Valor5=Lista5[0]		
 		option5 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor5,
 					"name": 'Maquina 5'}]
@@ -233,42 +261,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor6=Lista6[0]
 		option6 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor6,
 					"name": 'Maquina 6'}]
@@ -281,42 +318,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor9=Lista9[0]
 		option9 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor9,
 					"name": 'Maquina 9'}]
@@ -330,42 +376,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor10=Lista10[0]
 		option10 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor10,
 					"name": 'Maquina 10'}]
@@ -373,49 +428,58 @@ if st.sidebar.button('OBTENER OEE'):
 		};
 		st_echarts(options=option10,width="100%", key="6")
 	
-	#Fila 2
+	#Fila 2 ********************************************************************************************************
 	col1, col2,col3, col4, col5, col6 = st.columns(6)
 	with col1:
 		Lista11=Maquina_11.to_numpy().tolist()
 		Valor11=Lista11[0]
 		option11 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor11,
 					"name": 'Maquina 11'}]
@@ -427,42 +491,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor12=Lista12[0]
 		option12 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor12,
 					"name": 'Maquina 12'}]
@@ -474,42 +547,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor13=Lista13[0]
 		option13 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor13,
 					"name": 'Maquina 13'}]
@@ -521,42 +603,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor14=Lista14[0]
 		option14 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor14,
 					"name": 'Maquina 14'}]
@@ -568,42 +659,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor16=Lista16[0]
 		option16 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor16,
 					"name": 'Maquina 16'}]
@@ -615,42 +715,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor17=Lista17[0]
 		option17 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor17,
 					"name": 'Maquina 17'}]
@@ -658,49 +767,58 @@ if st.sidebar.button('OBTENER OEE'):
 		};
 		st_echarts(options=option17,width="100%", key="12")
 		
-	#Fila 3
+	#Fila 3 ********************************************************************************************************
 	col1, col2,col3, col4, col5 = st.columns(5)
 	with col1:
 		Lista72=Maquina_72.to_numpy().tolist()
 		Valor72=Lista72[0]
 		option72 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor72,
 					"name": 'Maquina 72'}]
@@ -712,42 +830,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor73=Lista73[0]
 		option73 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor73,
 					"name": 'Maquina 73'}]
@@ -759,42 +886,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor74=Lista74[0]
 		option74 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor74,
 					"name": 'Maquina 74'}]
@@ -806,50 +942,51 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor75=Lista75[0]
 		option75 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'
+				"formatter": '{a} <br/>{b} : {c}%'
 			},
 			"series": [{
 				"name": 'YYY',
 				"type": 'gauge',
 				"startAngle": 220,
-				"endAngle": -50,
-				"progress": {"show": "true"},
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
 				"radius":'100%',
-				"itemStyle": {
-					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0)',
-					"shadowBlur": 10,
-					"shadowOffsetX": 2,
-					"shadowOffsetY": 2,
-					"radius": '55%',},
-				"progress": {
-					"show": "true",
-					"roundCap": "true",
-					"width": 5},
-				"pointer": {
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
+				"axisLine": {
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
 					"length": '60%',
 					"width": 8,
-					"offsetCenter": [0, '5%']},
-				"lineStyle": {
-					"width": 8,
-					"color": [
-						[0.6, 'rgb(21,128,224)'],
-						[0.8, 'rgb(250, 197, 21)'],
-						[1, 'rgb(56, 182, 14)']
-						]
-						},
+					"offsetCenter": [0, '5%'],					
+				},
 				"detail": {
-					"valueAnimation": "true",
+					"valueAnimation": True,
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,
-					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
 				"data": [{
 					"value": Valor75,
 					"name": 'Maquina 75'}]
@@ -861,30 +998,55 @@ if st.sidebar.button('OBTENER OEE'):
 		Valor76=Lista76[0]
 		option76 = {
 			"tooltip": {
-			"formatter": '{a} <br/>{b} : {c}%'},
-			"series": [
-				{"name": 'Current',
+				"formatter": '{a} <br/>{b} : {c}%'
+			},
+			"series": [{
+				"name": 'YYY',
 				"type": 'gauge',
-				"progress": {
-				"show": False},
+				"startAngle": 220,
+				"endAngle": -40,
+				"progress": {"show": False}, #linea que crece con los datos
+				"radius":'100%',
+							#"itemStyle": {
+							#	"color": '#f44336', #1580E0, 58D9F9
+							#	"shadowColor": 'rgba(0,0,0,0)',
+							#	"shadowBlur": 100,   #Sombre desenfoque
+							#	"shadowOffsetX": 2,
+							#	"shadowOffsetY": 2,
+							#	"radius": '55%',},
 				"axisLine": {
-				"lineStyle": {
-				"width": 8,
-				"color": [[0.6, 'rgb(21,128,224)'],
-					[0.8, 'rgb(250, 197, 21)'],
-					[1, 'rgb(56, 182, 14)']]
-					}
-			},
-			"detail": {
-				"valueAnimation": True,
-				"formatter":'{value}%',
-				"color": 'auto',
-				"offsetCenter": [0, '100%']
-			},
-			"data": [{"value": Valor76,
-			"name": 'Maquina 76'}]
-		}
-		]
+					"lineStyle": {
+					"width": 15, #este es el grosor de la linea del velocimetro
+					"color": [[0.6, 'rgb(224,21,21)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']]},
+				},
+				#"progress": {
+				#	"show": "true",
+				#	"roundCap": "true",
+				#	"width": 5},
+				"pointer": {					
+					"length": '60%',
+					"width": 8,
+					"offsetCenter": [0, '5%'],					
+				},
+				"detail": {
+					"valueAnimation": True,
+					"formatter": '{value}%',
+					#"backgroundColor": '#000000',
+					#"borderColor": '#000000',
+					#"borderWidth": 0,   #Ancho del Borde
+					#"width": '0%',
+					#"lineHeight": 0,
+					#"height": 0,
+					#"borderRadius": 0,
+					"offsetCenter": [0, '75%'], #esto es el centrado de los %					
+					"color": 'auto', #Color de los Porcentajes segun el valor
+				},
+				"data": [{
+					"value": Valor76,
+					"name": 'Maquina 76'}]
+			}]
 		};
 		st_echarts(options=option76,width="100%", key="17")
 	
