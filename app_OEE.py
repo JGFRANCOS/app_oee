@@ -7,12 +7,18 @@ from sqlalchemy import create_engine
 import mysql.connector as mariadb
 import streamlit as st
 from streamlit_echarts import st_echarts
-import datetime
+from datetime import datetime
 import pymysql
 import plotly.graph_objects as go
 
 #Automcompletar rápido
 
+try:
+	con = create_engine(f'mysql+mysqlconnector://Jorge:j0rg3!@10.0.0.77/Enplast')
+except pymysql.err.OperationalError:
+	print("Error conectando con la base de datos.")
+	
+	
 #CONFIGURACION DE LA PÁGINA
 st.set_page_config(
 	page_title = 'Enplast  KPIs Program Data',
@@ -23,9 +29,12 @@ st.set_page_config(
 with st.sidebar:
 	st.image('ImagenEmpresa.png')
 
-    #INPUTS DE LA APLICACION
-	fecha = st.date_input('Seleccione fecha:', datetime.date(2023, 1, 1))
-	st.write('la Fecha seleccionada es:', fecha)
+#INPUTS DE LA APLICACION
+	fecha1 = st.date_input('Seleccione Fecha Desde:', datetime.today(), key="20")
+	fecha2 = st.date_input('Seleccione Fecha Hasta:', datetime.today(),key="21")
+	Maquinas = pd.read_sql(sql="SELECT CONCAT('Maquina',' - ', id_maquina)FROM tareas_historico GROUP BY id_maquina", con=con)
+	options = st.multiselect('Elija Maquinas;', Maquinas)
+
 
 #MAIN
 st.title('ENPLAST Calculo del OEE')
@@ -35,33 +44,30 @@ st.title('ENPLAST Calculo del OEE')
 
 #fecha="2023-10-22"
 # Crear la conexión MySQL
-try:
-	con = create_engine(f'mysql+mysqlconnector://Jorge:j0rg3!@10.0.0.77/Enplast')
-except pymysql.err.OperationalError:
-	print("Error conectando con la base de datos.")
+
 
 # Leer los datos de una tabla en MySQL y almacenarlos en un objeto de Pandas DataFrame
 #df = pd.read_sql(sql="select oee from calculo_oee_diario where maquina=1 and fecha='%s'"%fecha, con=con)
 #df = pd.read_sql(sql="select * from calculo_oee_diario where maquina=1", con=con)
 
 
-Maquina_1=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=1 and fecha='%s'"%fecha, con=con)
-Maquina_2=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=2 and fecha='%s'"%fecha, con=con)
-Maquina_5=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=5 and fecha='%s'"%fecha, con=con)
-Maquina_6=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=6 and fecha='%s'"%fecha, con=con)
-Maquina_9=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=9 and fecha='%s'"%fecha, con=con)
-Maquina_10=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=10 and fecha='%s'"%fecha, con=con)
-Maquina_11=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=11 and fecha='%s'"%fecha, con=con)
-Maquina_12=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=12 and fecha='%s'"%fecha, con=con)
-Maquina_13=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=13 and fecha='%s'"%fecha, con=con)
-Maquina_14=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=14 and fecha='%s'"%fecha, con=con)
-Maquina_16=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=16 and fecha='%s'"%fecha, con=con)
-Maquina_17=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=17 and fecha='%s'"%fecha, con=con)
-Maquina_72=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=72 and fecha='%s'"%fecha, con=con)
-Maquina_73=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=73 and fecha='%s'"%fecha, con=con)
-Maquina_74=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=74 and fecha='%s'"%fecha, con=con)
-Maquina_75=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=75 and fecha='%s'"%fecha, con=con)
-Maquina_76=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=76 and fecha='%s'"%fecha, con=con)
+Maquina_1=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=1 and fecha='%s'"%fecha1, con=con)
+Maquina_2=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=2 and fecha='%s'"%fecha1, con=con)
+Maquina_5=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=5 and fecha='%s'"%fecha1, con=con)
+Maquina_6=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=6 and fecha='%s'"%fecha1, con=con)
+Maquina_9=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=9 and fecha='%s'"%fecha1, con=con)
+Maquina_10=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=10 and fecha='%s'"%fecha1, con=con)
+Maquina_11=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=11 and fecha='%s'"%fecha1, con=con)
+Maquina_12=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=12 and fecha='%s'"%fecha1, con=con)
+Maquina_13=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=13 and fecha='%s'"%fecha1, con=con)
+Maquina_14=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=14 and fecha='%s'"%fecha1, con=con)
+Maquina_16=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=16 and fecha='%s'"%fecha1, con=con)
+Maquina_17=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=17 and fecha='%s'"%fecha1, con=con)
+Maquina_72=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=72 and fecha='%s'"%fecha1, con=con)
+Maquina_73=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=73 and fecha='%s'"%fecha1, con=con)
+Maquina_74=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=74 and fecha='%s'"%fecha1, con=con)
+Maquina_75=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=75 and fecha='%s'"%fecha1, con=con)
+Maquina_76=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=76 and fecha='%s'"%fecha1, con=con)
 
 
 
@@ -94,7 +100,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"itemStyle": {
 					"color": '#1580E0', #58D9F9,
 					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,
+					"shadowBlur": 10,   #Sombre desenfoque
 					"shadowOffsetX": 2,
 					"shadowOffsetY": 2,
 					"radius": '55%',},
@@ -111,7 +117,7 @@ if st.sidebar.button('OBTENER OEE'):
 					"formatter": '{value}%',
 					"backgroundColor": '#000000',
 					"borderColor": '#000000',
-					"borderWidth": 5,
+					"borderWidth": 5,   #Ancho del Borde
 					"width": '0%',
 					"lineHeight": 10,
 					"height": 10,
@@ -811,7 +817,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"radius":'100%',
 				"itemStyle": {
 					"color": '#1580E0', #58D9F9,
-					"shadowColor": 'rgba(0,0,0,0)',
+					"shadowColor": 'rgba(0,0,0)',
 					"shadowBlur": 10,
 					"shadowOffsetX": 2,
 					"shadowOffsetY": 2,
@@ -824,6 +830,14 @@ if st.sidebar.button('OBTENER OEE'):
 					"length": '60%',
 					"width": 8,
 					"offsetCenter": [0, '5%']},
+				"lineStyle": {
+					"width": 8,
+					"color": [
+						[0.6, 'rgb(21,128,224)'],
+						[0.8, 'rgb(250, 197, 21)'],
+						[1, 'rgb(56, 182, 14)']
+						]
+						},
 				"detail": {
 					"valueAnimation": "true",
 					"formatter": '{value}%',
@@ -855,26 +869,19 @@ if st.sidebar.button('OBTENER OEE'):
 				"show": False},
 				"axisLine": {
 				"lineStyle": {
-				"width": 6,
-				"color": [
-					[0.2, 'rgb(235, 34, 14)'],
-					[0.4, 'rgb(242, 99, 9)'],
-					[0.6, 'rgb(250, 197, 21)'],
-					[0.8, 'rgb(117, 198, 5)'],
-					[1, 'rgb(56, 182, 14)']
-					]}
+				"width": 8,
+				"color": [[0.6, 'rgb(21,128,224)'],
+					[0.8, 'rgb(250, 197, 21)'],
+					[1, 'rgb(56, 182, 14)']]
+					}
 			},
 			"detail": {
 				"valueAnimation": True,
 				"formatter":'{value}%',
 				"color": 'auto'
 			},
-			"data": [
-			{
-				"value": Valor76,
-				"name": 'Maquina 76'
-			},
-			]
+			"data": [{"value": Valor76,
+			"name": 'Maquina 76'}]
 		}
 		]
 		};
