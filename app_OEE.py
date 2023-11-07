@@ -1,4 +1,4 @@
-﻿#from codigo_de_ejecucion import *
+#from codigo_de_ejecucion import *
 import json
 import os
 import numpy as np
@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 #Automcompletar rápido
 
 try:
-	con = create_engine(f'mysql+mysqlconnector://Jorge:j0rg3!@10.0.0.77/Enplast')
+	con = create_engine(f'mysql+mysqlconnector://Jorge:j0rg3!@217.125.23.189/Enplast')
 except pymysql.err.OperationalError:
 	print("Error conectando con la base de datos.")
 	
