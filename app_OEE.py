@@ -1,4 +1,4 @@
-#from codigo_de_ejecucion import *
+﻿#from codigo_de_ejecucion import *
 import json
 import os
 import numpy as np
@@ -30,14 +30,14 @@ with st.sidebar:
 	st.image('ImagenEmpresa.png')
 
 #INPUTS DE LA APLICACION
-	fecha1 = st.date_input('Seleccione Fecha Desde:', datetime.today(), key="20")
-	fecha2 = st.date_input('Seleccione Fecha Hasta:', datetime.today(),key="21")
-	Maquinas = pd.read_sql(sql="SELECT CONCAT('Maquina',' - ', id_maquina)FROM tareas_historico GROUP BY id_maquina", con=con)
-	options = st.multiselect('Elija Maquinas;', Maquinas)
+	fecha1 = st.date_input('Fecha Desde:', datetime.today(), key="20")
+	#fecha2 = st.date_input('Fecha Hasta:', datetime.today(),key="21")
+	#Maquinas = pd.read_sql(sql="SELECT CONCAT('Maquina',' - ', id_maquina)FROM tareas_historico GROUP BY id_maquina", con=con)
+	#options = st.multiselect('Seleccione Maquina/s;', Maquinas)
 
 
 #MAIN
-st.title('ENPLAST Calculo del OEE')
+st.title('  Calculo OEE   ')
 
 
 #CALCULAR
@@ -85,7 +85,7 @@ if st.sidebar.button('OBTENER OEE'):
 	col1, col2,col3, col4, col5, col6 = st.columns(6)
 	with col1:		
 		Lista1=Maquina_1.to_numpy().tolist()
-		Valor1=Lista1[0]
+		Valor1=Lista1[0]		
 		option1 = {
 			"tooltip": {
 			"formatter": '{a} <br/>{b} : {c}%'
@@ -100,7 +100,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"itemStyle": {
 					"color": '#1580E0', #58D9F9,
 					"shadowColor": 'rgba(0,0,0,0)',
-					"shadowBlur": 10,   #Sombre desenfoque
+					"shadowBlur": 10,   #Sombra desenfoque
 					"shadowOffsetX": 2,
 					"shadowOffsetY": 2,
 					"radius": '55%',},
@@ -115,17 +115,17 @@ if st.sidebar.button('OBTENER OEE'):
 				"detail": {
 					"valueAnimation": "true",
 					"formatter": '{value}%',
-					"backgroundColor": '#000000',
-					"borderColor": '#000000',
-					"borderWidth": 5,   #Ancho del Borde
+					"backgroundColor": '#000000', # color de Fondo 
+					"borderColor": '#000000', # Color del Borde
+					"borderWidth": 0,   #Ancho del Borde
 					"width": '0%',
-					"lineHeight": 10,
-					"height": 10,
-					"borderRadius": 188,
-					"offsetCenter": [0, '100%'],
-					"valueAnimation": "true",},
+					"lineHeight": 0, #Altura de la Linea
+					"height": 0,
+					"borderRadius": 0,
+					"offsetCenter": [0, '100%'], #Los Tantos por Cientos colocacion
+					"valueAnimation":"true",},
 				"data": [{
-					"value": Valor1,
+					"value":Valor1,
 					"name": 'Maquina 1'}]
 			}]
 		};
@@ -319,7 +319,7 @@ if st.sidebar.button('OBTENER OEE'):
 					"valueAnimation": "true",},
 				"data": [{
 					"value": Valor9,
-					"name": 'Maquina 5'}]
+					"name": 'Maquina 9'}]
 			}]
 		};
 		st_echarts(options=option9,width="100%", key="5")
@@ -878,7 +878,8 @@ if st.sidebar.button('OBTENER OEE'):
 			"detail": {
 				"valueAnimation": True,
 				"formatter":'{value}%',
-				"color": 'auto'
+				"color": 'auto',
+				"offsetCenter": [0, '100%']
 			},
 			"data": [{"value": Valor76,
 			"name": 'Maquina 76'}]
@@ -888,4 +889,4 @@ if st.sidebar.button('OBTENER OEE'):
 		st_echarts(options=option76,width="100%", key="17")
 	
 else:
-	st.write('Selecciona una fecha Correctamente')
+	st.write('')
