@@ -32,6 +32,7 @@ with st.sidebar:
 #INPUTS DE LA APLICACION
 	fecha1 = st.date_input('Fecha Desde:', datetime.today(), key="20")
 	#fecha2 = st.date_input('Fecha Hasta:', datetime.today(),key="21")
+	
 	#Maquinas = pd.read_sql(sql="SELECT CONCAT('Maquina',' - ', id_maquina)FROM tareas_historico GROUP BY id_maquina", con=con)
 	#options = st.multiselect('Seleccione Maquina/s;', Maquinas)
 
@@ -71,7 +72,7 @@ Maquina_76=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=76 
 
 
 
-#CALCULAR RIESGO
+
 
     
     #Calcular los kpis  
@@ -80,13 +81,13 @@ Maquina_76=pd.read_sql(sql="select oee from calculo_oee_diario where maquina=76 
     #Velocimetro para Maquina1
 	
     #Representarlos en la app
+	
 if st.sidebar.button('OBTENER OEE'):
 #Fila 1 ********************************************************************************************************
 	col1, col2,col3, col4, col5, col6 = st.columns(6)
 	with col1:				
 		Lista1=Maquina_1.to_numpy().tolist()
-		Valor1=Lista1[0]	
-		
+		Valor1=Lista1[0]			
 		option1 = {
 			"tooltip": {
 				"formatter": '{a} <br/>{b} : {c}%'
@@ -136,11 +137,12 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor1,
-					"name": 'Maquina 1'}]
+					"name":'M 1' }]
 			}]
 		};
+		
 		st_echarts(options=option1,width="100%", key="0")
-
+		
 	with col2:
 		Lista2=Maquina_2.to_numpy().tolist()
 		Valor2=Lista2[0]
@@ -193,7 +195,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor2,
-					"name": 'Maquina 2'}]
+					"name": 'M 2'}]
 			}]
 		};
 		st_echarts(options=option2,width="100%", key="1")
@@ -250,7 +252,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor5,
-					"name": 'Maquina 5'}]
+					"name": 'M 5'}]
 			}]
 		};
 		st_echarts(options=option5,width="100%", key="3")
@@ -308,7 +310,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor6,
-					"name": 'Maquina 6'}]
+					"name": 'M 6'}]
 			}]
 		};
 		st_echarts(options=option6,width="100%", key="4")
@@ -365,7 +367,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor9,
-					"name": 'Maquina 9'}]
+					"name": 'M 9'}]
 			}]
 		};
 		st_echarts(options=option9,width="100%", key="5")
@@ -423,7 +425,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor10,
-					"name": 'Maquina 10'}]
+					"name": 'M 10'}]
 			}]
 		};
 		st_echarts(options=option10,width="100%", key="6")
@@ -482,7 +484,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor11,
-					"name": 'Maquina 11'}]
+					"name": 'M 11'}]
 			}]
 		};
 		st_echarts(options=option11,width="100%", key="7")
@@ -538,7 +540,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor12,
-					"name": 'Maquina 12'}]
+					"name": 'M 12'}]
 			}]
 		};
 		st_echarts(options=option12,width="100%", key="8")
@@ -594,7 +596,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor13,
-					"name": 'Maquina 13'}]
+					"name": 'M 13'}]
 			}]
 		};
 		st_echarts(options=option13,width="100%", key="9")
@@ -650,7 +652,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor14,
-					"name": 'Maquina 14'}]
+					"name": 'M 14'}]
 			}]
 		};
 		st_echarts(options=option14,width="100%", key="10")
@@ -706,7 +708,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor16,
-					"name": 'Maquina 16'}]
+					"name": 'M 16'}]
 			}]
 		};
 		st_echarts(options=option16,width="100%", key="11")
@@ -762,7 +764,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor17,
-					"name": 'Maquina 17'}]
+					"name": 'M 17'}]
 			}]
 		};
 		st_echarts(options=option17,width="100%", key="12")
@@ -782,7 +784,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"startAngle": 220,
 				"endAngle": -40,
 				"progress": {"show": False}, #linea que crece con los datos
-				"radius":'100%',
+				"radius":'85%',
 							#"itemStyle": {
 							#	"color": '#f44336', #1580E0, 58D9F9
 							#	"shadowColor": 'rgba(0,0,0,0)',
@@ -821,7 +823,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor72,
-					"name": 'Maquina 72'}]
+					"name": 'M 72'}]
 			}]
 		};
 		st_echarts(options=option72,width="100%", key="13")
@@ -838,7 +840,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"startAngle": 220,
 				"endAngle": -40,
 				"progress": {"show": False}, #linea que crece con los datos
-				"radius":'100%',
+				"radius":'85%',
 							#"itemStyle": {
 							#	"color": '#f44336', #1580E0, 58D9F9
 							#	"shadowColor": 'rgba(0,0,0,0)',
@@ -877,7 +879,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor73,
-					"name": 'Maquina 73'}]
+					"name": 'M 73'}]
 			}]
 		};
 		st_echarts(options=option73,width="100%", key="14")
@@ -894,7 +896,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"startAngle": 220,
 				"endAngle": -40,
 				"progress": {"show": False}, #linea que crece con los datos
-				"radius":'100%',
+				"radius":'85%',
 							#"itemStyle": {
 							#	"color": '#f44336', #1580E0, 58D9F9
 							#	"shadowColor": 'rgba(0,0,0,0)',
@@ -933,7 +935,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor74,
-					"name": 'Maquina 74'}]
+					"name": 'M 74'}]
 			}]
 		};
 		st_echarts(options=option74,width="100%", key="15")
@@ -950,7 +952,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"startAngle": 220,
 				"endAngle": -40,
 				"progress": {"show": False}, #linea que crece con los datos
-				"radius":'100%',
+				"radius":'85%',
 							#"itemStyle": {
 							#	"color": '#f44336', #1580E0, 58D9F9
 							#	"shadowColor": 'rgba(0,0,0,0)',
@@ -989,7 +991,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor75,
-					"name": 'Maquina 75'}]
+					"name": 'M 75'}]
 			}]
 		};
 		st_echarts(options=option75,width="100%", key="16")
@@ -1006,7 +1008,7 @@ if st.sidebar.button('OBTENER OEE'):
 				"startAngle": 220,
 				"endAngle": -40,
 				"progress": {"show": False}, #linea que crece con los datos
-				"radius":'100%',
+				"radius":'85%',
 							#"itemStyle": {
 							#	"color": '#f44336', #1580E0, 58D9F9
 							#	"shadowColor": 'rgba(0,0,0,0)',
@@ -1045,7 +1047,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor76,
-					"name": 'Maquina 76'}]
+					"name": 'M 76'}]
 			}]
 		};
 		st_echarts(options=option76,width="100%", key="17")
