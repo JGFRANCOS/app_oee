@@ -109,8 +109,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -136,8 +136,8 @@ if st.sidebar.button('OBTENER OEE'):
 					"color": 'auto', #Color de los datos de Porcentajes segun el valor
 				},
 				"data": [{
-					"value": Valor1,
-					"name":'M 1' }]
+					"value": Valor1,					
+					"name":'M 1                 ' }]
 			}]
 		};
 		
@@ -167,8 +167,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -195,7 +195,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor2,
-					"name": 'M 2'}]
+					"name": 'M 2                 '}]
 			}]
 		};
 		st_echarts(options=option2,width="100%", key="1")
@@ -224,8 +224,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -252,7 +252,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor5,
-					"name": 'M 5'}]
+					"name": 'M 5                 '}]
 			}]
 		};
 		st_echarts(options=option5,width="100%", key="3")
@@ -282,8 +282,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -310,7 +310,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor6,
-					"name": 'M 6'}]
+					"name": 'M 6                 '}]
 			}]
 		};
 		st_echarts(options=option6,width="100%", key="4")
@@ -339,8 +339,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -367,7 +367,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor9,
-					"name": 'M 9'}]
+					"name": 'M 9                 '}]
 			}]
 		};
 		st_echarts(options=option9,width="100%", key="5")
@@ -397,8 +397,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -425,7 +425,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor10,
-					"name": 'M 10'}]
+					"name": 'M 10                 '}]
 			}]
 		};
 		st_echarts(options=option10,width="100%", key="6")
@@ -456,8 +456,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -484,7 +484,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor11,
-					"name": 'M 11'}]
+					"name": 'M 11                 '}]
 			}]
 		};
 		st_echarts(options=option11,width="100%", key="7")
@@ -512,8 +512,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -540,7 +540,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor12,
-					"name": 'M 12'}]
+					"name": 'M 12                 '}]
 			}]
 		};
 		st_echarts(options=option12,width="100%", key="8")
@@ -568,8 +568,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -596,7 +596,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor13,
-					"name": 'M 13'}]
+					"name": 'M 13                 '}]
 			}]
 		};
 		st_echarts(options=option13,width="100%", key="9")
@@ -624,8 +624,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -652,7 +652,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor14,
-					"name": 'M 14'}]
+					"name": 'M 14                 '}]
 			}]
 		};
 		st_echarts(options=option14,width="100%", key="10")
@@ -680,8 +680,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -708,7 +708,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor16,
-					"name": 'M 16'}]
+					"name": 'M 16                 '}]
 			}]
 		};
 		st_echarts(options=option16,width="100%", key="11")
@@ -736,8 +736,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -764,7 +764,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor17,
-					"name": 'M 17'}]
+					"name": 'M 17                 '}]
 			}]
 		};
 		st_echarts(options=option17,width="100%", key="12")
@@ -795,8 +795,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -823,7 +823,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor72,
-					"name": 'M 72'}]
+					"name": 'M 72                 '}]
 			}]
 		};
 		st_echarts(options=option72,width="100%", key="13")
@@ -851,8 +851,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -879,7 +879,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor73,
-					"name": 'M 73'}]
+					"name": 'M 73                 '}]
 			}]
 		};
 		st_echarts(options=option73,width="100%", key="14")
@@ -907,8 +907,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -935,7 +935,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor74,
-					"name": 'M 74'}]
+					"name": 'M 74                 '}]
 			}]
 		};
 		st_echarts(options=option74,width="100%", key="15")
@@ -963,8 +963,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -991,7 +991,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor75,
-					"name": 'M 75'}]
+					"name": 'M 75                 '}]
 			}]
 		};
 		st_echarts(options=option75,width="100%", key="16")
@@ -1019,8 +1019,8 @@ if st.sidebar.button('OBTENER OEE'):
 				"axisLine": {
 					"lineStyle": {
 					"width": 15, #este es el grosor de la linea del velocimetro
-					"color": [[0.6, 'rgb(224,21,21)'],
-						[0.8, 'rgb(250, 197, 21)'],
+					"color": [[0.75, 'rgb(224,21,21)'],
+						[0.88, 'rgb(250, 197, 21)'],
 						[1, 'rgb(56, 182, 14)']]},
 				},
 				#"progress": {
@@ -1047,7 +1047,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor76,
-					"name": 'M 76'}]
+					"name": 'M 76                 '}]
 			}]
 		};
 		st_echarts(options=option76,width="100%", key="17")
