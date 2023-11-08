@@ -137,7 +137,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor1,					
-					"name":'M1                 ' }]
+					"name":'M1           ' }]
 			}]
 		};
 		
@@ -195,7 +195,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor2,
-					"name": 'M2                 '}]
+					"name": 'M2           '}]
 			}]
 		};
 		st_echarts(options=option2,width="100%", key="1")
@@ -252,7 +252,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor5,
-					"name": 'M5                 '}]
+					"name": 'M5           '}]
 			}]
 		};
 		st_echarts(options=option5,width="100%", key="3")
@@ -310,7 +310,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor6,
-					"name": 'M6                 '}]
+					"name": 'M6           '}]
 			}]
 		};
 		st_echarts(options=option6,width="100%", key="4")
@@ -367,7 +367,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor9,
-					"name": 'M9                 '}]
+					"name": 'M9           '}]
 			}]
 		};
 		st_echarts(options=option9,width="100%", key="5")
@@ -425,7 +425,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor10,
-					"name": 'M10                 '}]
+					"name": 'M10           '}]
 			}]
 		};
 		st_echarts(options=option10,width="100%", key="6")
@@ -484,7 +484,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor11,
-					"name": 'M11                 '}]
+					"name": 'M11           '}]
 			}]
 		};
 		st_echarts(options=option11,width="100%", key="7")
@@ -540,7 +540,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor12,
-					"name": 'M12                 '}]
+					"name": 'M12           '}]
 			}]
 		};
 		st_echarts(options=option12,width="100%", key="8")
@@ -596,7 +596,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor13,
-					"name": 'M13                 '}]
+					"name": 'M13           '}]
 			}]
 		};
 		st_echarts(options=option13,width="100%", key="9")
@@ -652,7 +652,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor14,
-					"name": 'M14                 '}]
+					"name": 'M14           '}]
 			}]
 		};
 		st_echarts(options=option14,width="100%", key="10")
@@ -708,7 +708,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor16,
-					"name": 'M16                 '}]
+					"name": 'M16           '}]
 			}]
 		};
 		st_echarts(options=option16,width="100%", key="11")
@@ -764,7 +764,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor17,
-					"name": 'M17                 '}]
+					"name": 'M17           '}]
 			}]
 		};
 		st_echarts(options=option17,width="100%", key="12")
@@ -823,7 +823,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor72,
-					"name": 'M72                 '}]
+					"name": 'M72           '}]
 			}]
 		};
 		st_echarts(options=option72,width="100%", key="13")
@@ -879,7 +879,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor73,
-					"name": 'M73                 '}]
+					"name": 'M73           '}]
 			}]
 		};
 		st_echarts(options=option73,width="100%", key="14")
@@ -935,7 +935,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor74,
-					"name": 'M74                 '}]
+					"name": 'M74           '}]
 			}]
 		};
 		st_echarts(options=option74,width="100%", key="15")
@@ -991,7 +991,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor75,
-					"name": 'M75                 '}]
+					"name": 'M75           '}]
 			}]
 		};
 		st_echarts(options=option75,width="100%", key="16")
@@ -1047,7 +1047,7 @@ if st.sidebar.button('OBTENER OEE'):
 				},
 				"data": [{
 					"value": Valor76,
-					"name": 'M76                 '}]
+					"name": 'M76           '}]
 			}]
 		};
 		st_echarts(options=option76,width="100%", key="17")
